@@ -10,39 +10,18 @@ items = [
 ]
 
 def home(request):
-    text = """
-    <h1>Welcome!</h1>
-    <a href='/items'>Список товаров</a>
-    """
-    return HttpResponse(text)
+    return render(request, "index.html")
 
 
 def about(request):
     text = "Автор: <strong>Евгений Юрченко</strong>"
     return HttpResponse(text)
 
-# result = """
-# Список товаров:
-# <ul>
-#     <li>Кроссовки abibas</li>
-#     <li>Куртка кожаная</li>
-#     <li>Coca-cola 1 литр</li>
-#     <li>Картофель фри</li>
-#     <li>Кепка</li>
-# </ul>
-# """
-
 def items_list(request):
-    html = """
-    Список товаров:
-    <ol>
-    """
-    for item in items:
-        html += f"<li><a href='/item/{item['id']}'>{item['name']}</a></li>"
-
-    html += "</ol>"
-    return HttpResponse(html)
-
+    context = {
+        "items": items
+    }
+    return render(request, 'items_list.html', context)
 
 def item_detail(request, id):
     for item in items:
