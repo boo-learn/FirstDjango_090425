@@ -26,11 +26,7 @@ def items_list(request):
 def item_detail(request, id):
     for item in items:
         if item['id'] == id:
-            html = f"""
-            <h2>{item['name']}</h2>
-            Количество: {item['quantity']}
-            <a href='/items'>Назад</a>
-            """
-            return HttpResponse(html)
-
-    return HttpResponseNotFound(f"Товар с id={id} не найден")
+            context = {
+                "item": item
+            }
+            return render(request, 'item.html', context)

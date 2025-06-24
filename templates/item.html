@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список товаров</title>
+    <title>Кроссовки abibas</title>
     <style>
         body {
             font-family: sans-serif;
@@ -11,7 +11,6 @@
             background-color: #f4f4f4;
             color: #333;
         }
-
         .container {
             max-width: 960px;
             margin: 0 auto;
@@ -29,19 +28,19 @@
     <a href="/about">About</a>
 </nav>
 <div class="container">
-{# python: item['key']  #}
-{# dj_templ: item.key  #}
-
-{#  python: my_list[3] #}
-{#  dj_templ: my_list.3 #}
-    <ol>
-        {% for item in items %}
-        <li>
-            <a href="/item/{{ item.id }}">{{ item.name }}</a>
-            (В наличии: {{ item.quantity }})
-        </li>
-        {% endfor %}
-    </ol>
+    <h1>{{ item.name }}</h1>
+    <p>
+        Наименование: <strong>{{ item.name }}</strong>
+    </p>
+    <p>
+        Количество:
+        {% if item.quantity == 0 %}
+            товар отсутствует
+        {% else %}
+            {{ item.quantity }} шт.
+        {% endif %}
+    </p>
+<a href="/items">Назад</a>
 </div>
 </body>
 </html>
