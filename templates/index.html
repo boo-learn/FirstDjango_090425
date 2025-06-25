@@ -3,20 +3,24 @@
     Home page
 {% endblock %}
 {% block style %}
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
-    padding-top: 50px;
-    }
+    {{ block.super }}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding-top: 50px;
+        }
 
-    h1 {
-    color: #0056b3;
-    }
+        h1 {
+            color: #0056b3;
+        }
 
-    p {
-    font-size: 1.2em;
+        p {
+            font-size: 1.2em;
+        }
+    </style>
 {% endblock %}
 {% block content %}
     <h1>Привет из Django!</h1>

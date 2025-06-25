@@ -1,34 +1,14 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кроссовки abibas</title>
+{% extends 'base.html' %}
+{% block title %}
+    Item:{{ item.name }}
+{% endblock %}
+{% block style %}
+    {{ block.super }}
     <style>
-        body {
-            font-family: sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
     </style>
-</head>
-<body>
-<nav>
-    <a href="/">Home</a> |
-    <a href="/items">Items</a> |
-    <a href="/about">About</a>
-</nav>
-<div class="container">
+{% endblock %}
+{% block content %}
+
     <h1>{{ item.name }}</h1>
     <p>
         Наименование: <strong>{{ item.name }}</strong>
@@ -36,16 +16,14 @@
     <p>
         Количество:
         {{ item.count | default:'товар отсутствует' }}
-{#        {% if item.count == 0 %}#}
-{#            товар отсутствует#}
-{#        {% else %}#}
-{#            {{ item.count }} шт.#}
-{#        {% endif %}#}
+        {#        {% if item.count == 0 %}#}
+        {#            товар отсутствует#}
+        {#        {% else %}#}
+        {#            {{ item.count }} шт.#}
+        {#        {% endif %}#}
     </p>
     <p>
         {{ item.description }}
     </p>
     <a href="/items">Назад</a>
-</div>
-</body>
-</html>
+{% endblock %}
