@@ -35,11 +35,12 @@
     </p>
     <p>
         Количество:
-        {% if item.count == 0 %}
-            товар отсутствует
-        {% else %}
-            {{ item.count }} шт.
-        {% endif %}
+        {{ item.count | default:'товар отсутствует' }}
+{#        {% if item.count == 0 %}#}
+{#            товар отсутствует#}
+{#        {% else %}#}
+{#            {{ item.count }} шт.#}
+{#        {% endif %}#}
     </p>
     <p>
         {{ item.description }}
