@@ -1,5 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.http import HttpResponseNotFound
+from MainApp.models import Item
 
 items = [
     {"id": 1, "name": "Кроссовки abibas", "quantity": 5},
@@ -18,15 +19,15 @@ def about(request):
     return HttpResponse(text)
 
 def items_list(request):
+    items =Item.objects.all()
     context = {
         "items": items
     }
     return render(request, 'items_list.html', context)
 
 def item_detail(request, id):
-    for item in items:
-        if item['id'] == id:
-            context = {
-                "item": item
-            }
-            return render(request, 'item.html', context)
+    item = get_object_or_404(Item, id=id)
+    context = {
+        "item": item
+    }
+    return render(request, 'item.html', context)

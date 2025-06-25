@@ -11,6 +11,7 @@
             background-color: #f4f4f4;
             color: #333;
         }
+
         .container {
             max-width: 960px;
             margin: 0 auto;
@@ -34,13 +35,16 @@
     </p>
     <p>
         Количество:
-        {% if item.quantity == 0 %}
+        {% if item.count == 0 %}
             товар отсутствует
         {% else %}
-            {{ item.quantity }} шт.
+            {{ item.count }} шт.
         {% endif %}
     </p>
-<a href="/items">Назад</a>
+    <p>
+        {{ item.description }}
+    </p>
+    <a href="/items">Назад</a>
 </div>
 </body>
 </html>
