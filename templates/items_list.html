@@ -34,7 +34,7 @@
     <ol>
         {% for item in items %}
             <li>
-                <a href="/item/{{ item.id }}">{{ item.name }}</a>
+                <a href="{% url 'item-detail' item.id %}">{{ item.name }}</a>
                 (В наличии: {{ item.count }})
             </li>
         {% endfor %}

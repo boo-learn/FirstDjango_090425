@@ -20,10 +20,10 @@ from MainApp import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('', views.home),
-    path('about', views.about),
-    path('items', views.items_list),
-    path('item/<int:id>', views.item_detail),
+    path('', views.home, name="home"),
+    path('about', views.about, name="about"),
+    path('items', views.items_list, name="items-list"),
+    path('item/<int:id>', views.item_detail, name="item-detail"),
 ]
 
 # /item/1
