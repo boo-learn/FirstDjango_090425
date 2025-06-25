@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
     Home page
 {% endblock %}
@@ -26,4 +27,5 @@
     <h1>Привет из Django!</h1>
     <p>Вы успешно отобразили HTML-страницу.</p>
     <p>Это ваша первая статическая страница, возвращаемая из шаблона.</p>
+    <img src="{% static 'img/unicorn.png' %}" alt="">
 {% endblock %}
