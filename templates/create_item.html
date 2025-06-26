@@ -6,7 +6,7 @@
 
 {% block content %}
     <form action="" method="post">
-    {% csrf_token %}
+        {% csrf_token %}
         <label for="name">Название товара:</label><br>
         <input type="text" name="name"><br>
 
@@ -15,6 +15,12 @@
 
         <label for="count">Количество:</label><br>
         <input type="number" name="count"><br>
+
+        <select name="colors" multiple>
+            {% for color in colors %}
+                <option value="{{ color.id }}">{{ color.name }}</option>
+            {% endfor %}
+        </select>
 
         <label for="description">Описание</label><br>
         <textarea name="description" cols="20" rows="10"></textarea><br>

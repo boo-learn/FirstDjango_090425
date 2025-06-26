@@ -16,12 +16,15 @@
     <p>
         Количество:
         {{ item.count | default:'товар отсутствует' }}
-        {#        {% if item.count == 0 %}#}
-        {#            товар отсутствует#}
-        {#        {% else %}#}
-        {#            {{ item.count }} шт.#}
-        {#        {% endif %}#}
     </p>
+    <ul>
+        {% for color in item.colors.all %}
+            <li>
+                <i class="fa-solid fa-square"></i>
+                {{ color.name }}
+            </li>
+        {% endfor %}
+    </ul>
     <p>
         {{ item.description }}
     </p>
