@@ -28,33 +28,33 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,  # Не отключаем существующие логгеры
-
-    'formatters': {
-        'sql_formatter': {
-            'format': '{levelname} {message} (Duration: {duration:.3f}s)',  # Формат для SQL
-            'style': '{',
-        },
-    },
-
-    'handlers': {
-        'console_sql': {  # Отдельный обработчик для SQL-запросов
-            'class': 'logging.StreamHandler',
-            'formatter': 'sql_formatter',
-            'level': 'DEBUG',
-        },
-    },
-
-    'loggers': {
-        'django.db.backends': {
-            'handlers': ['console_sql'],  # Используем наш специальный обработчик
-            'level': 'DEBUG',  # Уровень DEBUG для отображения всех запросов
-            'propagate': False,  # Очень важно: отключаем всплытие, чтобы SQL не дублировался другими логгерами
-        },
-    }
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,  # Не отключаем существующие логгеры
+#
+#     'formatters': {
+#         'sql_formatter': {
+#             'format': '{levelname} {message} (Duration: {duration:.3f}s)',  # Формат для SQL
+#             'style': '{',
+#         },
+#     },
+#
+#     'handlers': {
+#         'console_sql': {  # Отдельный обработчик для SQL-запросов
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'sql_formatter',
+#             'level': 'DEBUG',
+#         },
+#     },
+#
+#     'loggers': {
+#         'django.db.backends': {
+#             'handlers': ['console_sql'],  # Используем наш специальный обработчик
+#             'level': 'DEBUG',  # Уровень DEBUG для отображения всех запросов
+#             'propagate': False,  # Очень важно: отключаем всплытие, чтобы SQL не дублировался другими логгерами
+#         },
+#     }
+# }
 
 INSTALLED_APPS = [
     'django.contrib.admin',

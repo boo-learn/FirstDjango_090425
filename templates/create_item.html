@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Добавление товара
+{% endblock %}
+
+{% block content %}
+    <form action="" method="post">
+    {% csrf_token %}
+        <label for="name">Название товара:</label><br>
+        <input type="text" name="name"><br>
+
+        <label for="brand">Бренд:</label><br>
+        <input type="text" name="brand"><br>
+
+        <label for="count">Количество:</label><br>
+        <input type="number" name="count"><br>
+
+        <label for="description">Описание</label><br>
+        <textarea name="description" cols="20" rows="10"></textarea><br>
+
+        <input type="submit" value="Добавить товар">
+
+    </form>
+{% endblock %}
