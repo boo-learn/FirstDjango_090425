@@ -20,7 +20,7 @@
     <ul>
         {% for color in item.colors.all %}
             <li>
-                <i class="fa-solid fa-square"></i>
+                <i style="color: {{ color.hex_code }}" class="fa-solid fa-square"></i>
                 {{ color.name }}
             </li>
         {% endfor %}
